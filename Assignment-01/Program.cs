@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -39,9 +39,32 @@ namespace Assignment_01
             Console.WriteLine(o2.EmpNo1);
             Console.WriteLine(o1.EmpNo1);
             Console.ReadLine();
+            // other test cases
 
-
-
+            Employee o5 = new Employee();
+            Console.WriteLine("=========================o5");
+            Console.WriteLine(o5.Name1);
+            Console.WriteLine(o5.EmpNo1);
+            Console.WriteLine(o5.Basic1);
+            Console.WriteLine(o5.DeptNo1);
+            Console.WriteLine("=========================o6");
+            Employee o6 = new Employee("Ashutosh", 120000,10);
+            Console.WriteLine(o6.Name1);
+            Console.WriteLine(o6.EmpNo1);
+            Console.WriteLine(o6.Basic1);
+            Console.WriteLine(o6.DeptNo1);
+            Console.WriteLine("=========================o7");
+            Employee o7 = new Employee("Ashutosh", 120000);
+            Console.WriteLine(o7.Name1);
+            Console.WriteLine(o7.EmpNo1);
+            Console.WriteLine(o7.Basic1);
+            Console.WriteLine(o7.DeptNo1);
+            Console.WriteLine("=========================o8");
+            Employee o8 = new Employee("Ashutosh");
+            Console.WriteLine(o8.Name1);
+            Console.WriteLine(o8.EmpNo1);
+            Console.WriteLine(o8.Basic1);
+            Console.WriteLine(o8.DeptNo1);
         }
     }
     public class Employee
@@ -112,24 +135,24 @@ namespace Assignment_01
         public Employee(string Name1,decimal Basic1=0,short DeptNo1=0)
         {
             EmpNo_cnt++;
-            Name = Name1;
+            this.Name = Name1;
             Empno = EmpNo_cnt;
-            Basic = Basic1;
-            DeptNo = DeptNo1;
+            this.Basic = Basic1;
+            this.DeptNo1 = DeptNo1;
         }
         //two para constr
         public Employee(string Name1, decimal Basic1)
         {
             EmpNo_cnt++;
-            Name = Name1;
+            this.Name1 = Name1;
             Empno = EmpNo_cnt;
-            Basic = Basic1;
+            this.Basic1 = Basic1;
         }
         //one para constr
         public Employee(string Name1)
         {
             EmpNo_cnt++;
-            Name = Name1;
+            this.Name1 = Name1;
             Empno = EmpNo_cnt;
         }
         //zero para constr
