@@ -17,17 +17,36 @@ namespace Assignment_02
             Console.WriteLine(e1.CalCNetSalary());
             Console.WriteLine(e2.CalCNetSalary());
             Console.WriteLine(e3.CalCNetSalary());
+            //method 1
+            e1.open();
+            e1.close();
+            //method 2
+            IDBfunction Idbf;
+            Idbf = e2;
+            Idbf.open();
+            Idbf.close();
+            //method 3
+            ((IDBfunction)e3).open();
+            ((IDBfunction)e3).close();
 
             Console.ReadLine();
         }
     }
-    public  abstract class Employee
+
+    //interface
+    public interface IDBfunction
+    {
+        void open();
+        void close();
+    }
+    //employee class
+    public  abstract class Employee:IDBfunction
     {
         private string name;
         private int empNo;
         private static int SempNO=0;
         private short deptNo;
-        private decimal basic;
+        protected decimal basic;
        
         #region properties 
         public string Name
@@ -101,13 +120,23 @@ namespace Assignment_02
         #endregion
         #region method
         public abstract decimal CalCNetSalary();
+
+        public virtual void open()
+        {
+            Console.WriteLine("employee open method");
+        }
+
+        public virtual void close()
+        {
+            Console.WriteLine("employee close method");
+        }
         #endregion method
     }
     //manager class 
-    public class Manager : Employee
+    public class Manager : Employee,IDBfunction
     {
         private string designation;
-        private decimal basic;
+        
   
         #region properties
         //designation property
@@ -155,13 +184,21 @@ namespace Assignment_02
         {
             return Basic+(Basic*10);
         }
+        public override void open()
+        {
+            Console.WriteLine("manager open method");
+        }
+        public override void close()
+        {
+            Console.WriteLine("manager close"); ;
+        }
         #endregion method
     }
     //class General Manager
-    public class GeneralManager : Employee
+    public class GeneralManager : Employee,IDBfunction
     {
         private string perks;
-        private decimal basic;
+        
         //property of perck
         public string Perks
         {
@@ -197,10 +234,18 @@ namespace Assignment_02
         {
             return (Basic+Basic*15);
         }
+        public override void open()
+        {
+            Console.WriteLine("general manager open method"); ;
+        }
+        public override void close()
+        {
+            Console.WriteLine("genneral manager close method"); ;
+        }
     }
     //class CEO
-    public class CEO:Employee {
-        private decimal basic;
+    public class CEO:Employee,IDBfunction {
+        
         //override basic property
         public override decimal Basic
         {
@@ -223,6 +268,14 @@ namespace Assignment_02
         public sealed override decimal CalCNetSalary()
         {
             return Basic + (Basic * 20);
+        }
+        public override void close()
+        {
+            Console.WriteLine("ceo class close method"); 
+        }
+        public override void open()
+        {
+            Console.WriteLine("ceo classs opoen method"); 
         }
     }
     
