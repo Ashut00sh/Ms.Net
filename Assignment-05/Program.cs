@@ -39,11 +39,16 @@ namespace Assignment_05
                 return p1.basic;
             };
             Console.WriteLine("basic salary=="+o5(1000));
-            //lamda for iseven function
+            //lamda for iseven function use func
             Func<int, bool> o4 = (int a) =>
                 {
                     return a%2==0;
                 };
+            //lamda foriseven using predicate
+            predicate<int>o7=(a)=>{
+            return (a%2==0);
+            };
+            console.WriteLine("iseven predicate"+o7(12));
             Console.WriteLine("is even="+o4(12));
             //lamda function for basic is greater than 10k
             Func<object, bool> o6 = (p) =>
